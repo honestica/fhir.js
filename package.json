@@ -1,6 +1,6 @@
 {
   "name": "lifen-fhir.js",
-  "version": "0.0.0",
+  "version": "0.0.20",
   "devDependencies": {
     "angular": "~1.4.0",
     "babel-polyfill": "^6.7.4",
