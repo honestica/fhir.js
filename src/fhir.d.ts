@@ -7,19 +7,19 @@ export = fhirClient;
 declare function fhirClient(cfg: any, adapter: any): fhirClient.FhirClient;
 
 declare namespace fhirClient {
-    export type ClientFn = (...args:any[]) => Promise<any>
+    export type ClientFn = (...args:any[]) => Promise<{ data: any }>
     export type ResourceName = ('DomainResource'|'Organization'|'Location'|'HealthcareService'|'Practitioner'|'Patient'|'RelatedPerson'|'Device'|'Account'|'AllergyIntolerance'|'Schedule'|'Slot'|'Appointment'|'AppointmentResponse'|'AuditEvent'|'Basic'|'BodySite'|'Substance'|'Medication'|'Group'|'Specimen'|'DeviceComponent'|'DeviceMetric'|'ValueSet'|'Questionnaire'|'QuestionnaireResponse'|'Observation'|'FamilyMemberHistory'|'DocumentReference'|'DiagnosticOrder'|'ProcedureRequest'|'ReferralRequest'|'Procedure'|'ImagingStudy'|'ImagingObjectSelection'|'Media'|'DiagnosticReport'|'CommunicationRequest'|'DeviceUseRequest'|'MedicationOrder'|'NutritionOrder'|'Order'|'ProcessRequest'|'SupplyRequest'|'VisionPrescription'|'ClinicalImpression'|'Condition'|'EpisodeOfCare'|'Encounter'|'MedicationStatement'|'RiskAssessment'|'Goal'|'CarePlan'|'Composition'|'Contract'|'Coverage'|'ClaimResponse'|'Claim'|'Communication'|'StructureDefinition'|'ConceptMap'|'OperationDefinition'|'Conformance'|'DataElement'|'DetectedIssue'|'DeviceUseStatement'|'DocumentManifest'|'EligibilityRequest'|'EligibilityResponse'|'EnrollmentRequest'|'EnrollmentResponse'|'ExplanationOfBenefit'|'Flag'|'Immunization'|'ImmunizationRecommendation'|'ImplementationGuide'|'List'|'MedicationAdministration'|'MedicationDispense'|'OperationOutcome'|'MessageHeader'|'NamingSystem'|'OrderResponse'|'PaymentNotice'|'PaymentReconciliation'|'Person'|'ProcessResponse'|'Provenance'|'SearchParameter'|'Subscription'|'SupplyDelivery'|'TestScript'|'Binary'|'Bundle'|'Parameters');
     export interface QueryOptions {
       $include: { [key: string]: string | string[] }
     }
-    function Create(content: { resource: fhir.CommunicationRequest }): Promise<fhir.CommunicationRequest>
-    function Create(content: { type: 'Binary', data: Buffer }): Promise<fhir.Binary>
-    function Create(content: { type: ResourceName, data: any }): Promise<any>
+    function Create(content: { resource: fhir.CommunicationRequest }): Promise<{ data: fhir.CommunicationRequest }>
+    function Create(content: { type: 'Binary', data: Buffer }): Promise<{ data: fhir.Binary }>
+    function Create(content: { type: ResourceName, data: any }): Promise<{ data: any }>
     
-    function Patch(content: { type: ResourceName, id: string, data: Array<{ op: 'replace' | 'add' | 'remove', path: string, value: string | object}> }): Promise<fhir.OperationOutcome>
+    function Patch(content: { type: ResourceName, id: string, data: Array<{ op: 'replace' | 'add' | 'remove', path: string, value: string | object}> }): Promise<{ data: fhir.OperationOutcome }>
     
-    function Search(content: { type: ResourceName, count?: number, query?: QueryOptions }): Promise<fhir.Bundle>
-    function NextPage(content: fhir.Bundle): Promise<fhir.Bundle>;
+    function Search(content: { type: ResourceName, count?: number, query?: QueryOptions }): Promise<{ data: fhir.Bundle }>
+    function NextPage(content: { type: ResourceName, bundle: fhir.Bundle }): Promise<{ data: fhir.Bundle }>;
 
     export interface FhirClient {
       conformance: ClientFn
