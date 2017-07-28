@@ -65,7 +65,7 @@
             read: GET.and(pt.$WithPatient).and(resourcePath).end(http),
             vread: GET.and(vreadPath).end(http),
             "delete": DELETE.and(resourcePath).and(ReturnHeader).end(http),
-            create: POST.and(resourceTypePath).and(ReturnHeader).end(http),
+            create: POST.and(resourceTypePath).and(query.$SearchParams).and(ReturnHeader).end(http),
             validate: POST.and(resourceTypePath.slash("_validate")).end(http),
             search: GET.and(resourceTypePath).and(pt.$WithPatient).and(query.$SearchParams).and($Paging).end(http),
             update: PUT.and(resourcePath).and(ReturnHeader).end(http),
