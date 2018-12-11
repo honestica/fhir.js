@@ -12,7 +12,8 @@ declare namespace fhirClient {
     export interface QueryOptions {
       $include: { [key: string]: string | string[] }
     }
-    function Create(content: { resource: fhir.CommunicationRequest }): Promise<{ data: fhir.CommunicationRequest }>
+
+    function Create<T extends fhir.DomainResource>(content: { resource: T }): Promise<{ data: T }>
     function Create(content: { type: 'Binary', data: Buffer }): Promise<{ data: fhir.Binary }>
     function Create(content: { type: ResourceName, data: any }): Promise<{ data: any }>
     
