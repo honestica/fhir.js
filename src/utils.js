@@ -50,7 +50,7 @@
   };
 
   exports.assertArray = assertArray;
-
+  
   var assertObject = function(a) {
     if (type(a) !== 'object') {
       throw 'not object';

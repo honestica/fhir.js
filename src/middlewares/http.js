@@ -1,7 +1,9 @@
 (function() {
     var utils = require("../utils");
+    var applyDefaultResourceToResponse = require('./resourceDefault').applyDefaultResourceToResponse;
 
     exports.Http = function(cfg, adapter){
+        var resourceDefaultFromConfig = typeof cfg.resourceDefault === 'undefined' ? {} : cfg.resourceDefault;
         return function(args){
             if(args.debug){
                 console.log("\nDEBUG (request):", args.method, args.url, args);
@@ -10,7 +12,7 @@
             if (args.debug && promise && promise.then){
                 promise.then(function(x){ console.log("\nDEBUG: (responce)", x);});
             }
-            return promise;
+            return promise && promise.then && typeof promise.then === 'function' ? promise.then(applyDefaultResourceToResponse(resourceDefaultFromConfig)) : promise;
         };
     };
 

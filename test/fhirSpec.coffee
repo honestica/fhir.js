@@ -3,7 +3,7 @@ assert = require('assert')
 
 describe "fhir", ->
   cfg = {baseUrl: 'BASE', }
-  adapter =  {http: ((x)-> {then: (f)-> f(x)})}
+  adapter =  {http: ((x)-> Promise.resolve(x))}
   subject = fhir(cfg, adapter)
 
   it "api", ()->

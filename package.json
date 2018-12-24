@@ -53,9 +53,10 @@
   },
   "homepage": "https://github.com/FHIR/fhir.js",
   "dependencies": {
-    "q": "^1.4.1",
-    "merge": "^1.1.3",
     "Base64": "~0.3.0",
+    "lodash.defaultsdeep": "^4.6.0",
+    "merge": "^1.1.3",
+    "q": "^1.4.1",
     "request": "~2.88.0"
   },
   "files": [
