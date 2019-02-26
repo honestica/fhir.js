@@ -50,7 +50,7 @@
         var vreadPath =  resourceHxPath.slash(":versionId || :resource.meta.versionId");
         var resourceVersionPath = resourceHxPath.slash(":versionId || :resource.meta.versionId");
 
-        var ReturnHeader = $$Header('Prefer', 'return=representation');
+        var ReturnHeader = $$Header('Prefer', cfg.headers && cfg.headers['Prefer'] ? cfg.headers['Prefer'] : 'return=representation');
 
         var $Paging = Middleware(query.$Paging);
 
