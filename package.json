@@ -52,7 +52,7 @@
   },
   "homepage": "https://github.com/FHIR/fhir.js",
   "dependencies": {
-    "@types/fhir": "0.0.30",
+    "@types/fhir": "0.0.34",
     "Base64": "~0.3.0",
     "merge": "^1.2.1",
     "q": "^1.4.1",
