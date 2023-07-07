@@ -1,6 +1,6 @@
 {
   "name": "lifen-fhir.js",
-  "version": "1.13.0",
+  "version": "1.14.0",
   "devDependencies": {
     "babel-polyfill": "^6.7.4",
     "bower": "latest",
