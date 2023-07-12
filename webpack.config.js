@@ -4,10 +4,6 @@ var path = require("path");
 module.exports = {
   entry: {
     fhir: ["./src/fhir.js"],
-    ngFhir: "./src/adapters/angularjs.js",
-    jqFhir: "./src/adapters/jquery.js",
-    yuifhir: "./src/adapters/yui.js",
-    nativeFhir: "./src/adapters/native.js"
   },
   node: {
     buffer: "mock"
