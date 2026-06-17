@@ -16,7 +16,7 @@
     "rimraf": "^2.7.1",
     "typescript": "^3.9.10",
     "webpack": "^1.13.2",
-    "webpack-dev-server": "1.0"
+    "webpack-dev-server": "5.2.5"
   },
   "description": "FHIR javascript client",
   "repository": {
